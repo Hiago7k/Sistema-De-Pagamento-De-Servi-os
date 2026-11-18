@@ -16,7 +16,6 @@ public class ClienteService {
             return null;
         }
 
-        System.out.printf("Cliente cadastrado no sistema!%n");
         Cliente cliente = new Cliente(nome, cpf);
         clientes.add(cliente);
         return cliente;

@@ -18,7 +18,7 @@ public class PrestadorService {
 
         Prestador prestador = new Prestador(nome, cnpj);
         prestadores.add(prestador);
-        System.out.printf("Prestador cadastrado no sistema com sucesso!%n");
+      //  System.out.printf("Prestador cadastrado no sistema com sucesso!%n");
 
         return prestador;
     }
@@ -32,5 +32,18 @@ public class PrestadorService {
         for (Prestador prestador : prestadores) {
             prestador.dadosPrestador();
         }
+    }
+
+
+    public static Prestador buscarPrestadorPorId(int id){
+        for (Prestador prestador : prestadores){
+            if (prestador.getId() == id){
+                System.out.printf("Prestador Contratado!%n");
+                return prestador;
+            }
+        }
+
+        System.out.printf("O prestador não existe!%n");
+        return null;
     }
 }
