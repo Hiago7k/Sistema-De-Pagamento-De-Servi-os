@@ -7,12 +7,14 @@ public class Prestador {
     private String cnpj;
     private double caixa;
     private int quantidadePagos;
+    private double precoServico;
 
-    public Prestador(String nome, String cnpj) {
+    public Prestador(String nome, String cnpj, double precoServico) {
         this.id = ++idPk;
         this.nome = nome;
         this.cnpj = cnpj;
         this.caixa = 0.;
+        this.precoServico = precoServico;
     }
 
 
@@ -35,6 +37,9 @@ public class Prestador {
     public int getQuantidadePagos() {
         return quantidadePagos;
     }
+
+
+
 
     public void dadosPrestador() {
         System.out.printf("%d | %s | CNPJ %s | Caixa R$ %.2f | Vendas %d%n",

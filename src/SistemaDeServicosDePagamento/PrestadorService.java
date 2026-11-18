@@ -5,7 +5,12 @@ import java.util.LinkedList;
 public class PrestadorService {
     private static LinkedList<Prestador> prestadores = new LinkedList<>();
 
-    public static Prestador cadastrarPrestador(String nome, String cnpj) {
+    public static Prestador cadastrarPrestador(String nome, String cnpj, double precoDoServivo) {
+        if (precoDoServivo <= 0){
+            System.out.printf("Valor de serviço invalido!");
+            return null;
+        }
+
         if (nome == null || nome.isEmpty()) {
             System.out.printf("Nome inválido!%n");
             return null;
@@ -16,7 +21,7 @@ public class PrestadorService {
             return null;
         }
 
-        Prestador prestador = new Prestador(nome, cnpj);
+        Prestador prestador = new Prestador(nome, cnpj, precoDoServivo);
         prestadores.add(prestador);
       //  System.out.printf("Prestador cadastrado no sistema com sucesso!%n");
 

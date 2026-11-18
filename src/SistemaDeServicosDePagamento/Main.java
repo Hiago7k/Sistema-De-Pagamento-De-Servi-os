@@ -10,9 +10,9 @@ public class Main {
         Cliente clienteAtual = ClienteService.cadastrarCliente("Hiago Rian", "923.123.234-14");
         ClienteService.cadastrarCliente("Joao Bola", "123.456.789-11");
         ClienteService.cadastrarCliente("Cara  Foia", "633.236.819-23");
-        PrestadorService.cadastrarPrestador("Group mark", "52-123.235.123-77");
-        PrestadorService.cadastrarPrestador("Reunidas", "23-132.234.151-11");
-        PrestadorService.cadastrarPrestador("Jose Farias", "63-194.834.496-60");
+        PrestadorService.cadastrarPrestador("Group mark", "52-123.235.123-77", 100);
+        PrestadorService.cadastrarPrestador("Reunidas", "23-132.234.151-11", 120);
+        PrestadorService.cadastrarPrestador("Jose Farias", "63-194.834.496-60", 60);
 
 
         System.out.printf("***** Cliente x Freelancer *****%n");
@@ -50,7 +50,11 @@ public class Main {
                     System.out.printf("Digite o CNPJ do Prestador de Serviço%n");
                     String cnpj = teclado.nextLine();
 
-                    PrestadorService.cadastrarPrestador(nomePrestador, cnpj);
+
+                    System.out.printf("Digite o preço do serviço%n");
+                    double precoServico = teclado.nextDouble();
+
+                    PrestadorService.cadastrarPrestador(nomePrestador, cnpj, precoServico);
                     break;
                 case 4:
                     System.out.printf("Exibindo Prestadores de Serviços%n");
