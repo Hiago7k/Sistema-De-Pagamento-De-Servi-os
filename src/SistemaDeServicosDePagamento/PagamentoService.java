@@ -2,6 +2,8 @@ package SistemaDeServicosDePagamento;
 
 public class PagamentoService {
 
-    public satic Pagar(String tipo)
+    public static void pagar(Pagamento metodo, int quantidadeParcelas){
+
+    }
 
 }

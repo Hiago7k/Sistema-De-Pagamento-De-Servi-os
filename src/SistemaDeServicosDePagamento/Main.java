@@ -70,11 +70,38 @@ public class Main {
                     // Logica pagamento
                     System.out.printf("Como deseja efetuar o pagamento?%n");
                     System.out.printf("1 - PIX %n");
-                    System.out.printf("1 - Débito %n");
-                    System.out.printf("1 - Crédito %n");
+                    System.out.printf("2 - Débito %n");
+                    System.out.printf("3 - Crédito %n");
                     int metodoPagamento = teclado.nextInt();
                     teclado.nextLine();
+                    int qtdParcelas = 0;
+                    Pagamento metodo;
 
+                    if (metodoPagamento == 1){
+
+                        metodo = new Pix();
+
+                    } else if (metodoPagamento == 2) {
+
+                        metodo = new Debito();
+
+                    } else if (metodoPagamento == 3) {
+                        System.out.printf("Digite a quantidade de parcelas 1 a 3 %n");
+                        qtdParcelas = teclado.nextInt();
+                        teclado.nextLine();
+
+                        if (qtdParcelas > 3 || qtdParcelas < 1){
+                            System.out.printf("Numeros de parcelas invalido!%n");
+                            continue;
+                        }
+
+                        metodo = new Credito();
+                    }else {
+                        System.out.printf("Método de pagamento inválido!%n");
+                        continue;
+                    }
+
+                    PagamentoService.pagar(metodo, qtdParcelas);
 
                     break;
                 default:
