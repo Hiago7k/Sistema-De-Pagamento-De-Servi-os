@@ -17,6 +17,11 @@ public class Prestador {
         this.precoServico = precoServico;
     }
 
+    public void receberPagamento(double valor){
+        this.caixa += valor;
+        quantidadePagos++;
+    }
+
 
     public int getId() {
         return id;
@@ -39,14 +44,17 @@ public class Prestador {
     }
 
 
-
+    public double getPrecoServico() {
+        return precoServico;
+    }
 
     public void dadosPrestador() {
-        System.out.printf("%d | %s | CNPJ %s | Caixa R$ %.2f | Vendas %d%n",
+        System.out.printf("%d | %s | CNPJ %s | Caixa R$ %.2f | Valor Serviço R$ %.2f | Vendas %d%n",
                 this.getId(),
                 this.getNome(),
                 this.getCnpj(),
                 this.getCaixa(),
+                this.precoServico,
                 this.quantidadePagos
         );
     }

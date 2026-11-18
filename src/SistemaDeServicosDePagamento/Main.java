@@ -26,6 +26,7 @@ public class Main {
             System.out.printf("3 -  cadastrar Prestadores%n");
             System.out.printf("4 -  exibir Prestadores%n");
             System.out.printf("5 -  Contratar um Serviço %n");
+            System.out.printf("0 -  Sair %n");
             System.out.printf("Digite a opção%n");
             opcao = teclado.nextInt();
             teclado.nextLine();
@@ -81,32 +82,34 @@ public class Main {
                     int qtdParcelas = 0;
                     Pagamento metodo;
 
-                    if (metodoPagamento == 1){
-
+                    if (metodoPagamento == 1) {
                         metodo = new Pix();
-
                     } else if (metodoPagamento == 2) {
-
                         metodo = new Debito();
-
                     } else if (metodoPagamento == 3) {
                         System.out.printf("Digite a quantidade de parcelas 1 a 3 %n");
                         qtdParcelas = teclado.nextInt();
                         teclado.nextLine();
 
-                        if (qtdParcelas > 3 || qtdParcelas < 1){
+                        if (qtdParcelas > 3 || qtdParcelas < 1) {
                             System.out.printf("Numeros de parcelas invalido!%n");
                             continue;
                         }
 
                         metodo = new Credito();
-                    }else {
+                    } else {
                         System.out.printf("Método de pagamento inválido!%n");
                         continue;
                     }
 
-                    PagamentoService.pagar(metodo, qtdParcelas);
+                    double valorTotal = prestadorAtual.getPrecoServico() + prestadorAtual.getPrecoServico()  * metodo.getTaxa();
 
+                    if (!clienteAtual.verificarSaldo(valorTotal)) {
+                        System.out.printf("saldo insuficiente%n");
+                        continue;
+                    }
+
+                    PagamentoService.pagar(clienteAtual,prestadorAtual, metodo, qtdParcelas, valorTotal);
                     break;
                 default:
                     System.out.printf("Opção invalida!%n");

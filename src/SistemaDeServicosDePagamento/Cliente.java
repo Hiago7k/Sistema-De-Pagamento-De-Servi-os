@@ -14,6 +14,18 @@ public class Cliente {
         this.saldo = 500.0;
     }
 
+    public void descontarSaldo(double valor){
+        this.saldo -= valor;
+    }
+
+
+    public boolean verificarSaldo(double valor){
+        if (valor > this.getSaldo()){
+            return false;
+        }
+        return true;
+    }
+
     public int getId() {
         return id;
     }
