@@ -7,6 +7,14 @@ public class Main {
         Scanner teclado = new Scanner(System.in);
         int opcao = -1;
 
+        ClienteService.cadastrarCliente("Hiago Rian", "923.123.234-14");
+        ClienteService.cadastrarCliente("Joao Bola", "123.456.789-11");
+        ClienteService.cadastrarCliente("Cara  Foia", "633.236.819-23");
+        PrestadorService.cadastrarPrestador("Group mark", "52-123.235.123-77");
+        PrestadorService.cadastrarPrestador("Reunidas", "23-132.234.151-11");
+        PrestadorService.cadastrarPrestador("Jose Farias", "63-194.834.496-60");
+
+
         System.out.printf("***** Cliente x Freelancer *****%n");
 
         do {
@@ -35,8 +43,18 @@ public class Main {
                     ClienteService.listarClientes();
                     break;
                 case 3:
+                    System.out.printf("Digite o nome do Prestador de Serviço%n");
+                    String nomePrestador = teclado.nextLine();
+
+                    System.out.printf("Digite o CNPJ do Prestador de Serviço%n");
+                    String cnpj = teclado.nextLine();
+
+                    PrestadorService.cadastrarPrestador(nomePrestador, cnpj);
+
                     break;
                 case 4:
+                    System.out.printf("Exibindo Prestadores de Serviços%n");
+                    PrestadorService.exibirPrestadores();
                     break;
                 default:
                     System.out.printf("Opção invalida!%n");

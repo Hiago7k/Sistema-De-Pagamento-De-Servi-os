@@ -37,7 +37,7 @@ public class Prestador {
     }
 
     public void dadosPrestador() {
-        System.out.printf("%d | %s | CNPJ %s | Caixa R$ %.2fn | Vendas %d%n",
+        System.out.printf("%d | %s | CNPJ %s | Caixa R$ %.2f | Vendas %d%n",
                 this.getId(),
                 this.getNome(),
                 this.getCnpj(),
